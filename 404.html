@@ -4,29 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 50px;
-            color: red;
-        }
-        p {
-            font-size: 20px;
-        }
-        a {
-            text-decoration: none;
-            color: blue;
-            font-size: 18px;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>404</h1>
-    <p>Oops! Halaman yang Anda cari tidak ditemukan.</p>
-    <a href="index.html">Kembali ke Beranda</a>
+<body class="bg-gray-100 dark:bg-gray-900 flex flex-col items-center justify-center h-screen text-center">
+    <div class="max-w-lg p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+        <h1 class="text-6xl font-bold text-red-500 dark:text-red-400">404</h1>
+        <p class="text-gray-700 dark:text-gray-300 mt-4 text-lg">Oops! Halaman yang Anda cari tidak ditemukan.</p>
+        
+        <!-- Ilustrasi -->
+        <img src="https://source.unsplash.com/300x200/?error" alt="404 Image" class="mx-auto my-6 rounded-lg shadow-md">
+
+        <!-- Tombol kembali ke beranda -->
+        <a href="index.html" class="px-6 py-3 text-lg font-semibold text-white bg-blue-500 hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500 rounded-lg transition duration-300">
+            Kembali ke Beranda
+        </a>
+    </div>
 </body>
 </html>
