@@ -34,35 +34,71 @@
         </style>
 
         <!-- Navbar -->
-        <nav class="flex px-4 border-b md:shadow-lg item-center relative">
+        <nav class="flex px-4 border-b md:shadow-lg items-center relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
             <div class="text-lg font-bold py-4 pl-6">
-                Edell<span class="text-blue-500">Weiss</span>
+                Edell<span class="text-blue-500 dark:text-blue-300">Weiss</span>
             </div>
-            <ul class="md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0">
+            <ul class="md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0 bg-white dark:bg-gray-900">
                 <li>
-                    <a href="index.html" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                    <a href="index.html" class="flex md:inline-flex p-4 items-center hover:bg-gray-50 dark:hover:bg-gray-700">
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/in/hafizh-fakhri-muharram-0ba408270/" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                    <a href="https://www.linkedin.com/in/hafizh-fakhri-muharram-0ba408270/" class="flex md:inline-flex p-4 items-center hover:bg-gray-50 dark:hover:bg-gray-700">
                         <span>LinkedIn</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#song" class="flex justify-between md:inline-flex p-4 items-center hover:bg-gray-50 space-x-2">
-                        <span>Fav Song</span>
-                    </a>
-                <li>
-                    <a href="https://www.instagram.com/muhafzhri/" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
+                    <a href="https://www.instagram.com/muhafzhri/" class="flex md:inline-flex p-4 items-center hover:bg-gray-50 dark:hover:bg-gray-700">
                         <span>About Me</span>
                     </a>
                 </li>
             </ul>
-            <div class="ml-auto md:hidden text-gray-500 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
-            </div>
+            
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle" class="ml-4 p-2 rounded-full focus:outline-none" aria-label="Toggle Dark Mode">
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8-8h1M3 12H2m15.364-6.364l.707-.707M6.343 6.343l-.707-.707m12.728 12.728l.707.707M6.343 17.657l-.707.707M12 5a7 7 0 100 14 7 7 0 000-14z" />
+                </svg>
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-800 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 118.646 3.646a9 9 0 0011.708 11.708z" />
+                </svg>
+            </button>
         </nav>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("dark-mode-toggle");
+            const sunIcon = document.getElementById("sun-icon");
+            const moonIcon = document.getElementById("moon-icon");
+
+            function setDarkMode(isDark) {
+                if (isDark) {
+                    document.documentElement.classList.add("dark");
+                    localStorage.setItem("theme", "dark");
+                    sunIcon.classList.remove("hidden");
+                    moonIcon.classList.add("hidden");
+                } else {
+                    document.documentElement.classList.remove("dark");
+                    localStorage.setItem("theme", "light");
+                    sunIcon.classList.add("hidden");
+                    moonIcon.classList.remove("hidden");
+                }
+            }
+
+            // Load theme from localStorage
+            if (localStorage.getItem("theme") === "dark") {
+                setDarkMode(true);
+            }
+
+            toggleButton.addEventListener("click", () => {
+                const isDark = !document.documentElement.classList.contains("dark");
+                setDarkMode(isDark);
+            });
+        });
+        </script>
+
             
         <!-- Body 1 -->
         <div class="min-h-screen bg-[url('Public/tianyi.jpg')] bg-center bg-cover bg-no-repeat px-28 py-5 relative" id="home">
